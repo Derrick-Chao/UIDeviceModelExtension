@@ -32,6 +32,11 @@ extension UIDevice {
         case Unknown = "unKnown"
     }
     
+    // MARK:- Public property
+    public var allNotchiPhoneDevices: [DeviceModelType] {
+        return [.iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhoneXR, .iPhone12Mini, .iPhone12, .iPhone12Pro, .iPhone12ProMax]
+    }
+    
     // MARK:- Public methods
     /// 判斷是否為iPhone
     public var isiPhoneDevice: Bool {
@@ -48,6 +53,11 @@ extension UIDevice {
         
         let finalDeviceModel = (deviceModel.count != 0) ? deviceModel[name]! : DeviceModelType.Unknown
         return checkZoomedModeOn(finalDeviceModel)
+    }
+    
+    /// 判斷當前機型是否包含在 devices 陣列中
+    func isOneOf(_ devices: [DeviceModelType]) -> Bool {
+        return devices.contains(self.getDeviceModel())
     }
     
     // MARK:- Private methods
