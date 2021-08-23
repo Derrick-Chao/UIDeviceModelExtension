@@ -33,17 +33,17 @@ extension UIDevice {
     }
     
     // MARK:- Public property
-    public var allNotchiPhoneDevices: [DeviceModelType] {
+    public static var allNotchiPhoneDevices: [DeviceModelType] {
         return [.iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhoneXR, .iPhone12Mini, .iPhone12, .iPhone12Pro, .iPhone12ProMax]
     }
     
     // MARK:- Public methods
     /// 判斷是否為iPhone
-    public var isiPhoneDevice: Bool {
+    public static var isiPhoneDevice: Bool {
         return UIDevice.current.userInterfaceIdiom == .phone
     }
     
-    public var isiPadDevice: Bool {
+    public static var isiPadDevice: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
     
