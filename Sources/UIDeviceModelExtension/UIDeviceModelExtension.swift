@@ -43,6 +43,10 @@ extension UIDevice {
         return UIDevice.current.userInterfaceIdiom == .phone
     }
     
+    public var isiPadDevice: Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
     /// 取得iPhone機型
     public func getDeviceModel() -> DeviceModelType {
     
@@ -56,7 +60,7 @@ extension UIDevice {
     }
     
     /// 判斷當前機型是否包含在 devices 陣列中
-    func isOneOf(_ devices: [DeviceModelType]) -> Bool {
+    public func isOneOf(_ devices: [DeviceModelType]) -> Bool {
         return devices.contains(self.getDeviceModel())
     }
     
