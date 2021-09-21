@@ -28,13 +28,17 @@ extension UIDevice {
         case iPhone12Mini = "iPhone 12 Mini"
         case iPhone12 = "iPhone 12"
         case iPhone12Pro = "iPhone 12 Pro"
-        case iPhone12ProMax = "iPhone12 Pro Max"
-        case Unknown = "unKnown"
+        case iPhone12ProMax = "iPhone 12 Pro Max"
+        case iPhone13Mini = "iPhone 13 Mini"
+        case iPhone13 = "iPhone 13"
+        case iPhone13Pro = "iPhone 13 Pro"
+        case iPhone13ProMax = "iPhone 13 Pro Max"
+        case Unknown = "unknown"
     }
     
     // MARK:- Public property
     public static var allNotchiPhoneDevices: [DeviceModelType] {
-        return [.iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhoneXR, .iPhone12Mini, .iPhone12, .iPhone12Pro, .iPhone12ProMax]
+        return [.iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhoneXR, .iPhone12Mini, .iPhone12, .iPhone12Pro, .iPhone12ProMax, .iPhone13Mini, .iPhone13, .iPhone13Pro, .iPhone13ProMax]
     }
     
     // MARK:- Public methods
@@ -64,9 +68,8 @@ extension UIDevice {
         return devices.contains(self.getDeviceModel())
     }
     
-    // MARK:- Private methods
     /// 取得此iPhone的Model Name
-    private var modelName: String {
+    public var modelName: String {
         
         var modelName = ""
         if TARGET_OS_SIMULATOR != 0 {
@@ -82,7 +85,8 @@ extension UIDevice {
         }
         return modelName
     }
-
+    
+    // MARK:- Private methods
     /// 各代iPhone Model Name 列表
     private func getModelList() -> [String: DeviceModelType] {
         
@@ -119,7 +123,11 @@ extension UIDevice {
             "iPhone13,1": DeviceModelType.iPhone12Mini,
             "iPhone13,2": DeviceModelType.iPhone12,
             "iPhone13,3": DeviceModelType.iPhone12Pro,
-            "iPhone13,4": DeviceModelType.iPhone12ProMax]
+            "iPhone13,4": DeviceModelType.iPhone12ProMax,
+            "iPhone14,4": DeviceModelType.iPhone13Mini,
+            "iPhone14,5": DeviceModelType.iPhone13,
+            "iPhone14,2": DeviceModelType.iPhone13Pro,
+            "iPhone14,3": DeviceModelType.iPhone13ProMax]
         return modelList
     }
     
