@@ -37,6 +37,8 @@ extension UIDevice {
     }
     
     // MARK:- Public property
+    /// 瀏海機Home Indicator 佔據的高度
+    public static let homeIndicatorSpace: CGFloat = 34.0
     public static var allNotchiPhoneDevices: [DeviceModelType] {
         return [.iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhoneXR, .iPhone12Mini, .iPhone12, .iPhone12Pro, .iPhone12ProMax, .iPhone13Mini, .iPhone13, .iPhone13Pro, .iPhone13ProMax]
     }
