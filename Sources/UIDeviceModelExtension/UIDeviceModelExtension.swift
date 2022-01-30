@@ -1,77 +1,216 @@
 import UIKit
 
 extension UIDevice {
-
-    public enum DeviceModelType: String {
-        case iPhone5 = "iPhone 5"
-        case iPhone5c = "iPhone 5c"
-        case iPhone5s = "iPhone 5s"
-        case iPhoneSE = "iPhone SE"
-        case iPhone6 = "iPhone 6"
-        case iPhone6Plus = "iPhone 6 Plus"
-        case iPhone6s = "iPhone 6S"
-        case iPhone6sPlus = "iPhone 6S Plus"
-        case iPhone7 = "iPhone 7"
-        case iPhone7Plus = "iPhone 7 Plus"
-        case iPhone8 = "iPhone 8"
-        case iPhone8Plus = "iPhone 8 Plus"
-        case iPhoneX = "iPhone X"
-        case iPhoneXR = "iPhone XR"
-        case iPhoneXS = "iPhone XS"
-        case iPhoneXSMax = "iPhone XS Max"
-        case iPhone4_7Inches_Device_Zoomed_Mode = "iPhone 4.7 Device Zoomed Mode"   // 320x568
-        case iPhone5_5Inches_Device_Zoomed_Mode = "iPhone 5.5 Device Zoomed Mode"   // 375x667
-        case iPhone11 = "iPhone 11"
-        case iPhone11Pro = "iPhone 11 Pro"
-        case iPhone11ProMax = "iPhone 11 Pro Max"
-        case iPhoneSE2nd = "iPhoneSE2nd"
-        case iPhone12Mini = "iPhone 12 Mini"
-        case iPhone12 = "iPhone 12"
-        case iPhone12Pro = "iPhone 12 Pro"
-        case iPhone12ProMax = "iPhone 12 Pro Max"
-        case iPhone13Mini = "iPhone 13 Mini"
-        case iPhone13 = "iPhone 13"
-        case iPhone13Pro = "iPhone 13 Pro"
-        case iPhone13ProMax = "iPhone 13 Pro Max"
-        case Unknown = "unknown"
+    /**
+     自定義判斷裝置的型號與屬性
+     */
+    public enum DeviceModel: Equatable {
+        // MARK: iPhone
+        case iPhone4
+        case iPhone4s
+        case iPhone5
+        case iPhone5c
+        case iPhone5s
+        case iPhoneSE
+        case iPhone6
+        case iPhone6Plus
+        case iPhone6s
+        case iPhone6sPlus
+        case iPhone7
+        case iPhone7Plus
+        case iPhone8
+        case iPhone8Plus
+        case iPhoneX
+        case iPhoneXR
+        case iPhoneXS
+        case iPhoneXSMax
+        case iPhone11
+        case iPhone11Pro
+        case iPhone11ProMax
+        case iPhoneSE2nd
+        case iPhone12Mini
+        case iPhone12
+        case iPhone12Pro
+        case iPhone12ProMax
+        case iPhone13Mini
+        case iPhone13
+        case iPhone13Pro
+        case iPhone13ProMax
+        // MARK: iPad
+        case iPad2
+        case iPad3
+        case iPad4
+        case iPadAir
+        case iPadAir2
+        case iPad5
+        case iPad6
+        case iPadAir3
+        case iPad7
+        case iPad8
+        case iPad9
+        case iPadAir4
+        case iPadMini
+        case iPadMini2
+        case iPadMini3
+        case iPadMini4
+        case iPadMini5
+        case iPadMini6
+        case iPadPro9Inch           // iPad Pro 9.7-inch
+        case iPadPro12Inch          // iPad Pro 12.9-inch
+        case iPadPro12Inch2nd       // iPad Pro 12.9-inch (2nd generation)
+        case iPadPro10Inch          // iPad Pro 10.5-inch
+        case iPadPro11Inch          // iPad Pro 11-inch
+        case iPadPro12Inch3rd       // iPad Pro 12.9-inch (3rd generation)
+        case iPadPro11Inch2nd       // iPad Pro 11-inch (2nd generation)
+        case iPadPro12Inch4th       // iPad Pro 12.9-inch (4th generation)
+        case iPadPro11Inch3rd       // iPad Pro 11-inch (3rd generation)
+        case iPadPro12Inch5th       // iPad Pro 12.9-inch (5th generation)
+        case unknown(String)
+        
+        public var deviceDescription: String {
+            switch self {
+            case .iPhone4: return "iPhone 4"
+            case .iPhone4s: return "iPhone 4s"
+            case .iPhone5: return "iPhone 5"
+            case .iPhone5c: return "iPhone 5c"
+            case .iPhone5s: return "iPhone 5s"
+            case .iPhone6: return "iPhone 6"
+            case .iPhone6Plus: return "iPhone 6 Plus"
+            case .iPhone6s: return "iPhone 6s"
+            case .iPhone6sPlus: return "iPhone 6s Plus"
+            case .iPhone7: return "iPhone 7"
+            case .iPhone7Plus: return "iPhone 7 Plus"
+            case .iPhoneSE: return "iPhone SE"
+            case .iPhone8: return "iPhone 8"
+            case .iPhone8Plus: return "iPhone 8 Plus"
+            case .iPhoneX: return "iPhone X"
+            case .iPhoneXS: return "iPhone Xs"
+            case .iPhoneXSMax: return "iPhone Xs Max"
+            case .iPhoneXR: return "iPhone Xʀ"
+            case .iPhone11: return "iPhone 11"
+            case .iPhone11Pro: return "iPhone 11 Pro"
+            case .iPhone11ProMax: return "iPhone 11 Pro Max"
+            case .iPhoneSE2nd: return "iPhone SE (2nd generation)"
+            case .iPhone12: return "iPhone 12"
+            case .iPhone12Mini: return "iPhone 12 mini"
+            case .iPhone12Pro: return "iPhone 12 Pro"
+            case .iPhone12ProMax: return "iPhone 12 Pro Max"
+            case .iPhone13: return "iPhone 13"
+            case .iPhone13Mini: return "iPhone 13 mini"
+            case .iPhone13Pro: return "iPhone 13 Pro"
+            case .iPhone13ProMax: return "iPhone 13 Pro Max"
+            case .iPad2: return "iPad 2"
+            case .iPad3: return "iPad (3rd generation)"
+            case .iPad4: return "iPad (4th generation)"
+            case .iPadAir: return "iPad Air"
+            case .iPadAir2: return "iPad Air 2"
+            case .iPad5: return "iPad (5th generation)"
+            case .iPad6: return "iPad (6th generation)"
+            case .iPadAir3: return "iPad Air (3rd generation)"
+            case .iPad7: return "iPad (7th generation)"
+            case .iPad8: return "iPad (8th generation)"
+            case .iPad9: return "iPad (9th generation)"
+            case .iPadAir4: return "iPad Air (4th generation)"
+            case .iPadMini: return "iPad Mini"
+            case .iPadMini2: return "iPad Mini 2"
+            case .iPadMini3: return "iPad Mini 3"
+            case .iPadMini4: return "iPad Mini 4"
+            case .iPadMini5: return "iPad Mini (5th generation)"
+            case .iPadMini6: return "iPad Mini (6th generation)"
+            case .iPadPro9Inch: return "iPad Pro (9.7-inch)"
+            case .iPadPro12Inch: return "iPad Pro (12.9-inch)"
+            case .iPadPro12Inch2nd: return "iPad Pro (12.9-inch) (2nd generation)"
+            case .iPadPro10Inch: return "iPad Pro (10.5-inch)"
+            case .iPadPro11Inch: return "iPad Pro (11-inch)"
+            case .iPadPro12Inch3rd: return "iPad Pro (12.9-inch) (3rd generation)"
+            case .iPadPro11Inch2nd: return "iPad Pro (11-inch) (2nd generation)"
+            case .iPadPro12Inch4th: return "iPad Pro (12.9-inch) (4th generation)"
+            case .iPadPro11Inch3rd: return "iPad Pro (11-inch) (3rd generation)"
+            case .iPadPro12Inch5th: return "iPad Pro (12.9-inch) (5th generation)"
+            case .unknown(let identifier): return identifier
+            }
+        }
+        
+        public static func == (lhs: DeviceModel, rhs: DeviceModel) -> Bool {
+            return lhs.deviceDescription == rhs.deviceDescription
+        }
     }
     
     // MARK:- Public property
     /// 瀏海機Home Indicator 佔據的高度
     public static let homeIndicatorSpace: CGFloat = 34.0
-    public static var allNotchiPhoneDevices: [DeviceModelType] {
+    /// 瀏海機iPhone裝置列表
+    public static var allNotchiPhoneDevices: [DeviceModel] {
         return [.iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhoneXR, .iPhone12Mini, .iPhone12, .iPhone12Pro, .iPhone12ProMax, .iPhone13Mini, .iPhone13, .iPhone13Pro, .iPhone13ProMax]
+    }
+    /// 判斷是否是瀏海機，來看是否Layout要注意SafeArea
+    public var isNotchiPhoneDevice: Bool {
+        return isOneOf(UIDevice.allNotchiPhoneDevices)
+    }
+    
+    /// 判斷是否為iPhone
+    public var isiPhoneDevice: Bool {
+        return userInterfaceIdiom == .phone
+    }
+    
+    /// 判斷是否為iPad
+    public var isiPadDevice: Bool {
+        return userInterfaceIdiom == .pad
+    }
+    
+    /**
+     判斷是否開啟Zoomed
+     
+     Models that support Display Zoom (2022/01/29 edited)
+     - iPhone 6s
+     - iPhone 6s Plus
+     - iPhone 7
+     - iPhone 7 Plus
+     - iPhone 8
+     - iPhone 8 Plus
+     - iPhone X
+     - iPhone XR
+     - iPhone XS
+     - iPhone XS Max
+     - iPhone 11
+     - iPhone 11 Pro
+     - iPhone 11 Pro Max
+     - iPhone SE (2nd generation)
+     - iPhone 12 mini
+     - iPhone 12
+     - iPhone 12 Pro
+     - iPhone 12 Pro Max
+     - iPhone 13 mini
+     - iPhone 13
+     - iPhone 13 Pro
+     - iPhone 13 Pro Max
+     */
+    public var isZoomed: Bool {
+        if UIScreen.main.nativeScale < 3.0 && UIScreen.main.scale == 3.0 {
+            // Plus series iDevice
+            return (2.7..<3.0 ~= UIScreen.main.nativeScale)
+        } else {
+            return UIScreen.main.nativeScale > UIScreen.main.scale
+        }
     }
     
     // MARK:- Public methods
-    /// 判斷是否為iPhone
-    public static var isiPhoneDevice: Bool {
-        return UIDevice.current.userInterfaceIdiom == .phone
-    }
-    
-    public static var isiPadDevice: Bool {
-        return UIDevice.current.userInterfaceIdiom == .pad
-    }
-    
-    /// 取得iPhone機型
-    public func getDeviceModel() -> DeviceModelType {
-    
-        let name = modelName
-        let deviceModel = getModelList().filter { (key, _) -> Bool in
-            return key == name
-        }
-        
-        let finalDeviceModel = (deviceModel.count != 0) ? deviceModel[name]! : DeviceModelType.Unknown
-        return checkZoomedModeOn(finalDeviceModel)
+    /// 偵測現在裝置的DeviceModel
+    public func detectDeviceModel() -> DeviceModel {
+            
+        let deviceModel = mapToDevice(modelName())
+        return deviceModel
     }
     
     /// 判斷當前機型是否包含在 devices 陣列中
-    public func isOneOf(_ devices: [DeviceModelType]) -> Bool {
-        return devices.contains(self.getDeviceModel())
+    public func isOneOf(_ devices: [DeviceModel]) -> Bool {
+        
+        let deviceModel = detectDeviceModel()
+        return devices.contains { $0 == deviceModel }
     }
     
     /// 取得此iPhone的Model Name
-    public var modelName: String {
+    public func modelName() -> String {
         
         var modelName = ""
         if TARGET_OS_SIMULATOR != 0 {
@@ -89,68 +228,72 @@ extension UIDevice {
     }
     
     // MARK:- Private methods
-    /// 各代iPhone Model Name 列表
-    private func getModelList() -> [String: DeviceModelType] {
-        
-        let modelList: [String: DeviceModelType] = [
-            "iPhone5,1": DeviceModelType.iPhone5,
-            "iPhone5,2": DeviceModelType.iPhone5,
-            "iPhone5,3": DeviceModelType.iPhone5c,
-            "iPhone5,4": DeviceModelType.iPhone5c,
-            "iPhone6,1": DeviceModelType.iPhone5s,
-            "iPhone6,2": DeviceModelType.iPhone5s,
-            "iPhone8,4": DeviceModelType.iPhoneSE,
-            "iPhone7,2": DeviceModelType.iPhone6,
-            "iPhone7,1": DeviceModelType.iPhone6Plus,
-            "iPhone8,1": DeviceModelType.iPhone6s,
-            "iPhone8,2": DeviceModelType.iPhone6sPlus,
-            "iPhone9,1": DeviceModelType.iPhone7,
-            "iPhone9,3": DeviceModelType.iPhone7,
-            "iPhone9,2": DeviceModelType.iPhone7Plus,
-            "iPhone9,4": DeviceModelType.iPhone7Plus,
-            "iPhone10,1": DeviceModelType.iPhone8,
-            "iPhone10,4": DeviceModelType.iPhone8,
-            "iPhone10,2": DeviceModelType.iPhone8Plus,
-            "iPhone10,5": DeviceModelType.iPhone8Plus,
-            "iPhone10,3": DeviceModelType.iPhoneX,
-            "iPhone10,6": DeviceModelType.iPhoneX,
-            "iPhone11,2": DeviceModelType.iPhoneXS,
-            "iPhone11,4": DeviceModelType.iPhoneXSMax,
-            "iPhone11,6": DeviceModelType.iPhoneXSMax,
-            "iPhone11,8": DeviceModelType.iPhoneXR,
-            "iPhone12,1": DeviceModelType.iPhone11,
-            "iPhone12,3": DeviceModelType.iPhone11Pro,
-            "iPhone12,5": DeviceModelType.iPhone11ProMax,
-            "iPhone12,8": DeviceModelType.iPhoneSE2nd,
-            "iPhone13,1": DeviceModelType.iPhone12Mini,
-            "iPhone13,2": DeviceModelType.iPhone12,
-            "iPhone13,3": DeviceModelType.iPhone12Pro,
-            "iPhone13,4": DeviceModelType.iPhone12ProMax,
-            "iPhone14,4": DeviceModelType.iPhone13Mini,
-            "iPhone14,5": DeviceModelType.iPhone13,
-            "iPhone14,2": DeviceModelType.iPhone13Pro,
-            "iPhone14,3": DeviceModelType.iPhone13ProMax]
-        return modelList
-    }
     
-    /// 確認裝置是否有調成 Zoomed模式，此模式螢幕解析度會改變
-    private func checkZoomedModeOn(_ deviceModel: DeviceModelType) -> DeviceModelType {
+    /// 根據此裝置的Model name來找出DeviceModel
+    /// - Parameter modelName: iDevice Model name, e.g. iPhone14,3 or iPad13,11
+    /// - Returns: enum DeviceModel
+    private func mapToDevice(_ modelName: String) -> DeviceModel {
         
-        switch deviceModel {
-        case .iPhone6, .iPhone6s, .iPhone7, .iPhone8:
-            let screenSize = UIScreen.main.bounds.size
-            if screenSize.width == 320.0 && screenSize.height == 568.0 {
-                return DeviceModelType.iPhone4_7Inches_Device_Zoomed_Mode
-            }
-            return deviceModel
-        case .iPhone6Plus, .iPhone6sPlus, .iPhone7Plus, .iPhone8Plus:
-            let screenSize = UIScreen.main.bounds.size
-            if screenSize.width == 375.0 && screenSize.height == 667.0 {
-                return DeviceModelType.iPhone5_5Inches_Device_Zoomed_Mode
-            }
-            return deviceModel
-        default:
-            return deviceModel
+        switch modelName {
+        case "iPhone3,1", "iPhone3,2", "iPhone3,3": return .iPhone4
+        case "iPhone4,1": return .iPhone4s
+        case "iPhone5,1", "iPhone5,2": return .iPhone5
+        case "iPhone5,3", "iPhone5,4": return .iPhone5c
+        case "iPhone6,1", "iPhone6,2": return .iPhone5s
+        case "iPhone7,2": return .iPhone6
+        case "iPhone7,1": return .iPhone6Plus
+        case "iPhone8,1": return .iPhone6s
+        case "iPhone8,2": return .iPhone6sPlus
+        case "iPhone9,1", "iPhone9,3": return .iPhone7
+        case "iPhone9,2", "iPhone9,4": return .iPhone7Plus
+        case "iPhone8,4": return .iPhoneSE
+        case "iPhone10,1", "iPhone10,4": return .iPhone8
+        case "iPhone10,2", "iPhone10,5": return .iPhone8Plus
+        case "iPhone10,3", "iPhone10,6": return .iPhoneX
+        case "iPhone11,2": return .iPhoneXS
+        case "iPhone11,4", "iPhone11,6": return .iPhoneXSMax
+        case "iPhone11,8": return .iPhoneXR
+        case "iPhone12,1": return .iPhone11
+        case "iPhone12,3": return .iPhone11Pro
+        case "iPhone12,5": return .iPhone11ProMax
+        case "iPhone12,8": return .iPhoneSE2nd
+        case "iPhone13,2": return .iPhone12
+        case "iPhone13,1": return .iPhone12Mini
+        case "iPhone13,3": return .iPhone12Pro
+        case "iPhone13,4": return .iPhone12ProMax
+        case "iPhone14,5": return .iPhone13
+        case "iPhone14,4": return .iPhone13Mini
+        case "iPhone14,2": return .iPhone13Pro
+        case "iPhone14,3": return .iPhone13ProMax
+        case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4": return .iPad2
+        case "iPad3,1", "iPad3,2", "iPad3,3": return .iPad3
+        case "iPad3,4", "iPad3,5", "iPad3,6": return .iPad4
+        case "iPad4,1", "iPad4,2", "iPad4,3": return .iPadAir
+        case "iPad5,3", "iPad5,4": return .iPadAir2
+        case "iPad6,11", "iPad6,12": return .iPad5
+        case "iPad7,5", "iPad7,6": return .iPad6
+        case "iPad11,3", "iPad11,4": return .iPadAir3
+        case "iPad7,11", "iPad7,12": return .iPad7
+        case "iPad11,6", "iPad11,7": return .iPad8
+        case "iPad12,1", "iPad12,2": return .iPad9
+        case "iPad13,1", "iPad13,2": return .iPadAir4
+        case "iPad2,5", "iPad2,6", "iPad2,7": return .iPadMini
+        case "iPad4,4", "iPad4,5", "iPad4,6": return .iPadMini2
+        case "iPad4,7", "iPad4,8", "iPad4,9": return .iPadMini3
+        case "iPad5,1", "iPad5,2": return .iPadMini4
+        case "iPad11,1", "iPad11,2": return .iPadMini5
+        case "iPad14,1", "iPad14,2": return .iPadMini6
+        case "iPad6,3", "iPad6,4": return .iPadPro9Inch
+        case "iPad6,7", "iPad6,8": return .iPadPro12Inch
+        case "iPad7,1", "iPad7,2": return .iPadPro12Inch2nd
+        case "iPad7,3", "iPad7,4": return .iPadPro10Inch
+        case "iPad8,1", "iPad8,2", "iPad8,3", "iPad8,4": return .iPadPro11Inch
+        case "iPad8,5", "iPad8,6", "iPad8,7", "iPad8,8": return .iPadPro12Inch3rd
+        case "iPad8,9", "iPad8,10": return .iPadPro11Inch2nd
+        case "iPad8,11", "iPad8,12": return .iPadPro12Inch4th
+        case "iPad13,4", "iPad13,5", "iPad13,6", "iPad13,7": return .iPadPro11Inch3rd
+        case "iPad13,8", "iPad13,9", "iPad13,10", "iPad13,11": return .iPadPro12Inch5th
+        default: return .unknown(modelName)
         }
     }
 }
