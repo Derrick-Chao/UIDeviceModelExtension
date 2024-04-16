@@ -36,6 +36,14 @@ extension UIDevice {
         case iPhone13
         case iPhone13Pro
         case iPhone13ProMax
+        case iPhone14
+        case iPhone14Plus
+        case iPhone14Pro
+        case iPhone14ProMax
+        case iPhone15
+        case iPhone15Plus
+        case iPhone15Pro
+        case iPhone15ProMax
         // MARK: iPad
         case iPad2
         case iPad3
@@ -99,6 +107,14 @@ extension UIDevice {
             case .iPhone13Mini: return "iPhone 13 mini"
             case .iPhone13Pro: return "iPhone 13 Pro"
             case .iPhone13ProMax: return "iPhone 13 Pro Max"
+            case .iPhone14: return "iPhone 14"
+            case .iPhone14Plus: return "iPhone 14 Plus"
+            case .iPhone14Pro: return "iPhone 14 Pro"
+            case .iPhone14ProMax: return "iPhone 14 Pro Max"
+            case .iPhone15: return "iPhone 15"
+            case .iPhone15Plus: return "iPhone 15 Plus"
+            case .iPhone15Pro: return "iPhone 15 Pro"
+            case .iPhone15ProMax: return "iPhone 15 Pro Max"
             case .iPad2: return "iPad 2"
             case .iPad3: return "iPad (3rd generation)"
             case .iPad4: return "iPad (4th generation)"
@@ -141,7 +157,7 @@ extension UIDevice {
     public static let homeIndicatorSpace: CGFloat = 34.0
     /// 瀏海機iPhone裝置列表
     public static var allNotchiPhoneDevices: [DeviceModel] {
-        return [.iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhoneXR, .iPhone12Mini, .iPhone12, .iPhone12Pro, .iPhone12ProMax, .iPhone13Mini, .iPhone13, .iPhone13Pro, .iPhone13ProMax]
+        return [.iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12Mini, .iPhone12, .iPhone12Pro, .iPhone12ProMax, .iPhone13Mini, .iPhone13, .iPhone13Pro, .iPhone13ProMax, .iPhone14, .iPhone14Plus, .iPhone14Pro, .iPhone14ProMax]
     }
     /// 判斷是否是瀏海機，來看是否Layout要注意SafeArea
     public var isNotchiPhoneDevice: Bool {
@@ -265,6 +281,14 @@ extension UIDevice {
         case "iPhone14,4": return .iPhone13Mini
         case "iPhone14,2": return .iPhone13Pro
         case "iPhone14,3": return .iPhone13ProMax
+        case "iPhone14,7": return .iPhone14
+        case "iPhone14,8": return .iPhone14Plus
+        case "iPhone15,2": return .iPhone14Pro
+        case "iPhone15,3": return .iPhone14ProMax
+        case "iPhone15,4": return .iPhone15
+        case "iPhone15,5": return .iPhone15Plus
+        case "iPhone16,1": return .iPhone15Pro
+        case "iPhone16,2": return .iPhone15ProMax
         case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4": return .iPad2
         case "iPad3,1", "iPad3,2", "iPad3,3": return .iPad3
         case "iPad3,4", "iPad3,5", "iPad3,6": return .iPad4
