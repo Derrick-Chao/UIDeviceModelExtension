@@ -36,6 +36,7 @@ extension UIDevice {
         case iPhone13
         case iPhone13Pro
         case iPhone13ProMax
+        case iPhoneSE3rd
         case iPhone14
         case iPhone14Plus
         case iPhone14Pro
@@ -73,6 +74,10 @@ extension UIDevice {
         case iPadPro12Inch4th       // iPad Pro 12.9-inch (4th generation)
         case iPadPro11Inch3rd       // iPad Pro 11-inch (3rd generation)
         case iPadPro12Inch5th       // iPad Pro 12.9-inch (5th generation)
+        case iPad10
+        case iPadAir5
+        case iPadPro11Inch4th       // iPad Pro 11-inch (4rd generation)
+        case iPadPro12Inch6th       // iPad Pro 12.9-inch (6th generation)
         case unknown(String)
         
         public var deviceDescription: String {
@@ -107,6 +112,7 @@ extension UIDevice {
             case .iPhone13Mini: return "iPhone 13 mini"
             case .iPhone13Pro: return "iPhone 13 Pro"
             case .iPhone13ProMax: return "iPhone 13 Pro Max"
+            case .iPhoneSE3rd: return "iPhone SE (3rd generation)"
             case .iPhone14: return "iPhone 14"
             case .iPhone14Plus: return "iPhone 14 Plus"
             case .iPhone14Pro: return "iPhone 14 Pro"
@@ -143,6 +149,10 @@ extension UIDevice {
             case .iPadPro12Inch4th: return "iPad Pro (12.9-inch) (4th generation)"
             case .iPadPro11Inch3rd: return "iPad Pro (11-inch) (3rd generation)"
             case .iPadPro12Inch5th: return "iPad Pro (12.9-inch) (5th generation)"
+            case .iPad10: return "iPad (10th Gen)"
+            case .iPadAir5: return "iPad Air 5"
+            case .iPadPro11Inch4th: return "iPad Pro (11 4th Gen)"
+            case .iPadPro12Inch6th: return "iPad Pro (12.9 6th Gen)"
             case .unknown(let identifier): return identifier
             }
         }
@@ -281,6 +291,7 @@ extension UIDevice {
         case "iPhone14,4": return .iPhone13Mini
         case "iPhone14,2": return .iPhone13Pro
         case "iPhone14,3": return .iPhone13ProMax
+        case "iPhone14,6": return .iPhoneSE3rd
         case "iPhone14,7": return .iPhone14
         case "iPhone14,8": return .iPhone14Plus
         case "iPhone15,2": return .iPhone14Pro
@@ -317,6 +328,10 @@ extension UIDevice {
         case "iPad8,11", "iPad8,12": return .iPadPro12Inch4th
         case "iPad13,4", "iPad13,5", "iPad13,6", "iPad13,7": return .iPadPro11Inch3rd
         case "iPad13,8", "iPad13,9", "iPad13,10", "iPad13,11": return .iPadPro12Inch5th
+        case "iPad13,18", "iPad13,19": return .iPad10
+        case "iPad13,16", "iPad13,17": return .iPadAir5
+        case "iPad14,3", "iPad14,4": return .iPadPro11Inch4th
+        case "iPad14,5", "iPad14,6": return .iPadPro12Inch6th
         default: return .unknown(modelName)
         }
     }
