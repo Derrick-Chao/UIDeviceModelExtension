@@ -45,6 +45,10 @@ extension UIDevice {
         case iPhone15Plus
         case iPhone15Pro
         case iPhone15ProMax
+        case iPhone16
+        case iPhone16Plus
+        case iPhone16Pro
+        case iPhone16ProMax
         // MARK: iPad
         case iPad2
         case iPad3
@@ -78,6 +82,10 @@ extension UIDevice {
         case iPadAir5
         case iPadPro11Inch4th       // iPad Pro 11-inch (4rd generation)
         case iPadPro12Inch6th       // iPad Pro 12.9-inch (6th generation)
+        case iPadAir6_11Inch        // iPad Air 6th Gen 11-inch
+        case iPadAir6_13Inch        // iPad Air 6th Gen 13-inch
+        case iPadPro11InchM4        // iPad Pro 11 inch(M4)
+        case iPadPro13InchM4        // iPad Pro 13 inch(M4)
         case unknown(String)
         
         public var deviceDescription: String {
@@ -121,6 +129,10 @@ extension UIDevice {
             case .iPhone15Plus: return "iPhone 15 Plus"
             case .iPhone15Pro: return "iPhone 15 Pro"
             case .iPhone15ProMax: return "iPhone 15 Pro Max"
+            case .iPhone16: return "iPhone 16"
+            case .iPhone16Plus: return "iPhone 16 Plus"
+            case .iPhone16Pro: return "iPhone 16 Pro"
+            case .iPhone16ProMax: return "iPhone 16 Pro Max"
             case .iPad2: return "iPad 2"
             case .iPad3: return "iPad (3rd generation)"
             case .iPad4: return "iPad (4th generation)"
@@ -153,6 +165,10 @@ extension UIDevice {
             case .iPadAir5: return "iPad Air 5"
             case .iPadPro11Inch4th: return "iPad Pro (11 4th Gen)"
             case .iPadPro12Inch6th: return "iPad Pro (12.9 6th Gen)"
+            case .iPadAir6_11Inch: return "iPad Air 6th Gen 11-inch"
+            case .iPadAir6_13Inch: return "iPad Air 6th Gen 13-inch"
+            case .iPadPro11InchM4: return "iPad Pro 11 inch(M4)"
+            case .iPadPro13InchM4: return "iPad Pro 13 inch(M4)"
             case .unknown(let identifier): return identifier
             }
         }
@@ -167,7 +183,7 @@ extension UIDevice {
     public static let homeIndicatorSpace: CGFloat = 34.0
     /// 瀏海機iPhone裝置列表
     public static var allNotchiPhoneDevices: [DeviceModel] {
-        return [.iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12Mini, .iPhone12, .iPhone12Pro, .iPhone12ProMax, .iPhone13Mini, .iPhone13, .iPhone13Pro, .iPhone13ProMax, .iPhone14, .iPhone14Plus, .iPhone14Pro, .iPhone14ProMax, .iPhone15, .iPhone15Plus, .iPhone15Pro, .iPhone15ProMax]
+        return [.iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12Mini, .iPhone12, .iPhone12Pro, .iPhone12ProMax, .iPhone13Mini, .iPhone13, .iPhone13Pro, .iPhone13ProMax, .iPhone14, .iPhone14Plus, .iPhone14Pro, .iPhone14ProMax, .iPhone15, .iPhone15Plus, .iPhone15Pro, .iPhone15ProMax, .iPhone16, .iPhone16Plus, .iPhone16Pro, .iPhone16ProMax]
     }
     /// 判斷是否是瀏海機，來看是否Layout要注意SafeArea
     public var isNotchiPhoneDevice: Bool {
@@ -300,6 +316,10 @@ extension UIDevice {
         case "iPhone15,5": return .iPhone15Plus
         case "iPhone16,1": return .iPhone15Pro
         case "iPhone16,2": return .iPhone15ProMax
+        case "iPhone17,3": return .iPhone16
+        case "iPhone17,4": return .iPhone16Plus
+        case "iPhone17,1": return .iPhone16Pro
+        case "iPhone17,2": return .iPhone16ProMax
         case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4": return .iPad2
         case "iPad3,1", "iPad3,2", "iPad3,3": return .iPad3
         case "iPad3,4", "iPad3,5", "iPad3,6": return .iPad4
@@ -332,6 +352,10 @@ extension UIDevice {
         case "iPad13,16", "iPad13,17": return .iPadAir5
         case "iPad14,3", "iPad14,4": return .iPadPro11Inch4th
         case "iPad14,5", "iPad14,6": return .iPadPro12Inch6th
+        case "iPad14,8, iPad14,9": return .iPadAir6_11Inch
+        case "iPad14,10, iPad14,11": return .iPadAir6_13Inch
+        case "iPad16,3, iPad16,4": return .iPadPro11InchM4
+        case "iPad16,5, iPad16,6": return .iPadPro13InchM4
         default: return .unknown(modelName)
         }
     }
