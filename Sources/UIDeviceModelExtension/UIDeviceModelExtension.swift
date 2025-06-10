@@ -255,17 +255,20 @@ extension UIDevice {
     public func modelName() -> String {
         
         var modelName = ""
-        if TARGET_OS_SIMULATOR != 0 {
-            modelName = ProcessInfo.processInfo.environment["SIMULATOR_MODEL_IDENTIFIER"] ?? ""
-        } else {
-            var systemInfo = utsname()
-            uname(&systemInfo)
-            let machineMirror = Mirror(reflecting: systemInfo.machine)
-            modelName = machineMirror.children.reduce("") { (identifier, element) in
-                guard let value = element.value as? Int8, value != 0 else { return identifier }
-                return identifier + String(UnicodeScalar(UInt8(value)))
-            }
+        #if targetEnvironment(simulator)
+//        if TARGET_OS_SIMULATOR != 0 {
+        modelName = ProcessInfo.processInfo.environment["SIMULATOR_MODEL_IDENTIFIER"] ?? ""
+        #else
+//        } else {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        modelName = machineMirror.children.reduce("") { (identifier, element) in
+            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
         }
+//        }
+        #endif
         return modelName
     }
     
